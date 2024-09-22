@@ -29,6 +29,17 @@ The Voice to text of utube will to lost.
 
 ![In dashboard](2024-09-22_18-06.png)
 
+# Todo 
+* upload automitcly the two video on your utube account
+* add in comment the id of the other video
+* make a server which can displau correctly the video. *
+
+# Ethics
+
+¨Please respect a minimal of ethic using this, and please don't make a commercial service for that or contact me. Thank's
+
+contact me if you want to help me twitter/x zebulon75018 
+
 
 # Dependencies
 
