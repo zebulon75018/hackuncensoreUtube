@@ -9,11 +9,15 @@ python videosplit2.py [yourvideo]
 
 .This split the video in two part, and mute on each video one second , with an offset of one second for the second one. 
 
+. This will produce two video, left_video, and right_video
+
 ![sounds muted](2024-09-22_17-45.png)
 
 . After in other html page , display the two video together , like behind
 
 ![two video](2024-09-22_17-41.png)
+
+So change in the merge2video.html the correct ID. 
 
 To play video click on the button play video. 
 
@@ -24,7 +28,6 @@ The Voice to text of utube will to lost.
 # Result 
 
 ![In dashboard](2024-09-22_18-06.png)
-
 
 
 # Dependencies
