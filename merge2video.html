@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Sync</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #videos {
+            display: flex;
+            justify-content: center;
+        }
+        .video-container {
+            margin: 0 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="videos">
+    <div class="video-container">
+        <div id="player1"></div>
+    </div>
+    <div class="video-container">
+        <div id="player2"></div>
+    </div>
+</div>
+<button id="playButton">Play Videos</button>
+
+<script>
+    let player1, player2;
+    let video1Ready = false, video2Ready = false;
+
+    function onYouTubeIframeAPIReady() {
+        player1 = new YT.Player('player1', {
+            height: '360',
+            width: '320',
+            videoId: '[YOURIDLEFT]', // Replace with your first video ID
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+
+        player2 = new YT.Player('player2', {
+            height: '360',
+            width: '320',
+            videoId: '[YOURIDRIGHT]', // Replace with your second video ID
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        if (event.target === player1) {
+            video1Ready = true;
+        }
+        if (event.target === player2) {
+            video2Ready = true;
+        }
+    }
+
+    document.getElementById('playButton').addEventListener('click', function() {
+        if (video1Ready && video2Ready) {
+            player1.seekTo(0);
+            player2.seekTo(0);
+            player1.playVideo();
+            player2.playVideo();
+        }
+    });
+
+    // Load the IFrame Player API code asynchronously.
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
+
+</body>
+</html>
+
